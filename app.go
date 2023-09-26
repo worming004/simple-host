@@ -9,7 +9,9 @@ import (
 
 func greet(w http.ResponseWriter, r *http.Request) {
   w.WriteHeader(http.StatusBadRequest)
-  fmt.Fprintf(w, "Hello World! %s", time.Now())
+  t := time.Now()
+  log.Printf("request received at %s\n", t.String())
+  fmt.Fprintf(w, "Hello World! %s", t)
 }
 
 func main() {
